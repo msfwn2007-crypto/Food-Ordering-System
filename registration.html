@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Ordering System - Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #e04a3a; /* Matching your food system red/orange accents */
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+        }
+        input:focus {
+            border-color: #e04a3a;
+            outline: none;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #2e7d32; /* Green submit button matching your theme */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .login-link a {
+            color: #e04a3a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Create Account</h2>
+    
+    <form id="registrationForm" onsubmit="handleRegister(event)">
+        <div class="form-group">
+            <label for="txtName">Full Name</label>
+            <input type="text" id="txtName" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="txtEmail">Email ID</label>
+            <input type="email" id="txtEmail" placeholder="Enter email address" required>
+        </div>
+
+        <div class="form-group">
+            <label for="txtPhone">Phone Number</label>
+            <input type="tel" id="txtPhone" placeholder="Enter mobile number" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="txtPassword">Password</label>
+            <input type="password" id="txtPassword" placeholder="Create password" required>
+        </div>
+        
+        <button type="submit" class="btn-submit">Register</button>
+    </form>
+    
+    <div class="login-link">
+        Already have an account? <a href="login.html">Login here</a>
+    </div>
+</div>
+
+<script>
+    function handleRegister(event) {
+        // Stop the HTML form from performing a webpage reload
+        event.preventDefault();
+        
+        // 1. Capture user data from the input fields
+        const nameInput = document.getElementById('txtName').value;
+        const emailInput = document.getElementById('txtEmail').value;
+        const phoneInput = document.getElementById('txtPhone').value;
+		const passwordInput = document.getElementById('txtPassword').value;
+		        
+		        // 2. Save profile parameters cleanly into browser session memory
+		        sessionStorage.setItem('loggedInUser', nameInput);
+		        sessionStorage.setItem('userPhone', phoneInput);
+		        sessionStorage.setItem('userEmail', emailInput);
+		        sessionStorage.setItem('userPassword', passwordInput); // Stored dynamically for login match test
+		        
+		        // Optional default payment simulation setting
+		        sessionStorage.setItem('userPayment', 'UPI (Paytm/GPay)');
+		        
+		        // 3. Inform user and shift path dynamically straight to your Login interface
+		        alert("Registration successful! Redirecting you to login...");
+		        window.location.href = "login.html";
+		    }
+		</script>
+
+		</body>
+		</html>

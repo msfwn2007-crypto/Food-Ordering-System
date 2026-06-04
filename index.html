@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title - Premium Food Delivery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fdfdfd;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #e04a3a; /* Matches your food menu red accent */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo span {
+            color: #2e7d32; /* Matches your checkout green accent */
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hero Layout Container Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8% 100px 8%;
+            min-height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #fffefe 0%, #fff3e0 100%);
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #222;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #e04a3a;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* Standard Buttons Styling */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #e04a3a;
+            color: white;
+            box-shadow: 0 4px 15px rgba(224, 74, 58, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #c83e30;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(224, 74, 58, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            border-color: #e04a3a;
+            color: #e04a3a;
+            transform: translateY(-2px);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Hero Graphic Illustration Placeholder */
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle-bg {
+            width: 450px;
+            height: 450px;
+            background: #f26522;
+            border-radius: 50%;
+            opacity: 0.1;
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Dynamic modern card preview graphic block */
+        .food-preview-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            z-index: 2;
+            width: 320px;
+            text-align: center;
+            border: 1px solid #fff3e0;
+            transform: rotate(-3deg);
+            transition: transform 0.5s ease;
+        }
+		.food-preview-card:hover {
+		            transform: rotate(0deg) scale(1.03);
+		        }
+
+		        .food-emoji {
+		            font-size: 5rem;
+		            margin-bottom: 15px;
+		            display: block;
+		        }
+
+		        .food-preview-card h3 {
+		            font-size: 1.4rem;
+		            margin-bottom: 8px;
+		            color: #222;
+		        }
+
+		        .food-preview-card p {
+		            color: #777;
+		            font-size: 0.95rem;
+		            margin-bottom: 15px;
+		        }
+
+		        .rating {
+		            color: #ffb300;
+		            font-size: 1.1rem;
+		            font-weight: bold;
+		        }
+
+		        /* Features Quick Grid Section */
+		        .features-grid {
+		            display: flex;
+		            justify-content: space-around;
+		            padding: 40px 8%;
+		            background: white;
+		            border-top: 1px solid #f0f0f0;
+		        }
+
+		        .feature-item {
+		            text-align: center;
+		            max-width: 250px;
+		        }
+
+		        .feature-icon {
+		            font-size: 2.2rem;
+		            margin-bottom: 10px;
+		            display: block;
+		        }
+
+		        .feature-item h4 {
+		            font-size: 1.1rem;
+		            margin-bottom: 6px;
+		            color: #333;
+		        }
+
+		        .feature-item p {
+		            font-size: 0.9rem;
+		            color: #888;
+		            line-height: 1.4;
+		        }
+		    </style>
+		</head>
+		<body>
+
+		    <header>
+		        <div class="logo">🍕 title<span>.</span></div>
+		        <div class="nav-buttons">
+		            <a href="login.html" class="btn btn-secondary" style="padding: 10px 22px; font-size: 0.9rem;">Sign In</a>
+		        </div>
+		    </header>
+
+		    <main class="hero-section">
+		        <div class="hero-content">
+		            <h1>Delicious Food, Delivered <span>To Your Door</span></h1>
+		            <p>Skip the kitchen work. Order elite, sizzling signature meals from your neighborhood kitchens instantly with zero structural hassle.</p>
+		            
+		            <div class="cta-group">
+		                <a href="registration.html" class="btn btn-primary">Get Started Now</a>
+		                <a href="login.html" class="btn btn-secondary">Explore Menu</a>
+		            </div>
+		        </div>
+
+		        <div class="hero-image-container">
+		            <div class="circle-bg"></div>
+		            <div class="food-preview-card">
+		                <span class="food-emoji">🍕</span>
+		                <h3>Hot Pepperoni Pizza</h3>
+		                <p>Extra cheese, crispy crust, loaded fresh toppings crisp to perfection.</p>
+		                <div class="rating">⭐ 4.9 (500+ Reviews)</div>
+		            </div>
+		        </div>
+		    </main>
+
+		    <section class="features-grid">
+		        <div class="feature-item">
+		            <span class="feature-icon">⚡</span>
+		            <h4>Super Fast Delivery</h4>
+		            <p>Hot, steaming food brought right to you in under 30 minutes.</p>
+		        </div>
+		        <div class="feature-item">
+		            <span class="feature-icon">🔒</span>
+		            <h4>Secure Payments</h4>
+		            <p>Pay smoothly via UPI, Cards, or Cash directly at checkout.</p>
+		        </div>
+		        <div class="feature-item">
+		            <span class="feature-icon">🍳</span>
+		            <h4>Elite Quality</h4>
+		            <p>Only the cleanest, highest-rated master restaurants certified for taste.</p>
+		        </div>
+		    </section>
+
+		</body>
+		</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Ordering System - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #e04a3a; /* Accent color matching your food ordering system */
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+        }
+        input:focus {
+            border-color: #e04a3a;
+            outline: none;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #e04a3a;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .btn-submit:hover {
+            background-color: #c83e30;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .register-link a {
+            color: #2e7d32; /* Green color pointing to registration */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>User Login</h2>
+    
+    <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+            <label for="txtLoginEmail">Email ID</label>
+            <input type="email" id="txtLoginEmail" placeholder="Enter your registered email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="txtLoginPassword">Password</label>
+            <input type="password" id="txtLoginPassword" placeholder="Enter your password" required>
+        </div>
+        
+        <button type="submit" class="btn-submit">Login</button>
+    </form>
+    
+    <div class="register-link">
+        Don't have an account? <a href="registration.html">Register here</a>
+    </div>
+</div>
+
+<script>
+    function handleLogin(event) {
+        // Stop the form from executing a page reload layout snap
+        event.preventDefault();
+        
+        // 1. Get input data values typed by the customer
+        const emailInput = document.getElementById('txtLoginEmail').value;
+        const passwordInput = document.getElementById('txtLoginPassword').value;
+        
+        // 2. Fetch the registration data saved in the browser memory
+        const registeredEmail = sessionStorage.getItem('userEmail');
+        const registeredPassword = sessionStorage.getItem('userPassword');
+        
+        // 3. Validation Logic Check
+        if (!registeredEmail) {
+            alert("No registered user found! Please register an account first.");
+            window.location.href = "registration.html";
+            return;
+			}
+			        
+			        if (emailInput === registeredEmail && passwordInput === registeredPassword) {
+			            // Login successful!
+			            alert("Login successful! Welcome back.");
+			            
+			            // Send user to the food menu dashboard
+			            window.location.href = "foodmenu.html";
+			        } else {
+			            // Details mismatch fallback alert handler
+			            alert("Invalid Email or Password! Please try again.");
+			        }
+			    }
+			</script>
+
+			</body>
+			</html>
